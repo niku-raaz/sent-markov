@@ -1,4 +1,4 @@
-# 📝 Markov Chain-Based Text Generator (Walt Whitman Style)
+# 📝 Markov Chain-Based Text Generator 
 
 This project uses a Markov Chain model to generate poetic phrases inspired by the style of Walt Whitman. The model learns transition probabilities from a dataset of text files and generates new phrases starting from a given seed (like `"my dear"`).
 
@@ -81,4 +81,5 @@ This will output several generated poetic lines using the trained Markov Chain m
 
 
 *Inspired by the timeless poetry of Walt Whitman.*
+
 
