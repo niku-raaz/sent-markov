@@ -1,6 +1,6 @@
 # 📝 Markov Chain-Based Text Generator 
 
-This project uses a Markov Chain model to generate poetic phrases inspired by the style of Walt Whitman. The model learns transition probabilities from a dataset of text files and generates new phrases starting from a given seed (like `"my dear"`).
+This project uses a Markov Chain model to generate poetic phrases inspired by the style of Gulzaar and Prem Chand. The model learns transition probabilities from a dataset of text files and generates new phrases starting from a given seed.
 
 ## 📂 Project Structure
 
@@ -19,8 +19,8 @@ project/
 ### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/yourusername/markov-whitman-generator.git
-cd markov-whitman-generator
+git clone https://github.com/niku-raaz/sent-markov.git
+cd sent-markov
 ```
 
 ### 2. Install Required Packages
@@ -53,20 +53,7 @@ python main.py
 
 This will output several generated poetic lines using the trained Markov Chain model.
 
-## 📚 How It Works
 
-1. **Data Reading**: Reads all text files from the `files/` folder.
-2. **Preprocessing**: Cleans the text by removing punctuation, lowercasing, and tokenizing.
-3. **Markov Chain Model**: Builds an n-gram-based Markov model to capture word transitions.
-4. **Generation**: Generates new phrases based on learned transition probabilities.
-
-## 🧠 Example Output
-
-```
-0. my dear soul shall ever be free in life or time
-1. my dear heart would sing upon green grasses and stars
-2. my dear friend you are no less than god himself
-```
 
 ## 🔁 Customization
 
@@ -80,6 +67,5 @@ This will output several generated poetic lines using the trained Markov Chain m
 - Results are highly dependent on the dataset quality and size.
 
 
-*Inspired by the timeless poetry of Walt Whitman.*
 
 
