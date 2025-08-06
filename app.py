@@ -8,18 +8,26 @@ from nltk.tokenize import word_tokenize
 from nltk.corpus import stopwords
 import random
 
-story_path = "files/"
+story_path = "hindi/"
 
 def read_all_stories(story_path):
     txt = []
-    for _, _, files in os.walk(story_path):
+    # Use 'dirpath' from os.walk to get the folder location
+    for dirpath, _, files in os.walk(story_path):
         for file in files:
-            with open(story_path+file) as f:
+            # 1. Correctly join the path and filename
+            full_path = os.path.join(dirpath, file)
+            
+            # 2. Add encoding='utf-8' to read Hindi text
+            with open(full_path, 'r', encoding='utf-8') as f:
                 for line in f:
                     line = line.strip()
-                    if line=='============================': break
-                    if line!='':txt.append(line)
+                    if line == ' ':
+                        break
+                    if line != '':
+                        txt.append(line)
     return txt
+
         
 stories = read_all_stories(story_path)
 print("number of lines = ", len(stories))
@@ -66,8 +74,8 @@ def make_markov_model(cleaned_stories, n_gram=2):
 
 markov_model = make_markov_model(cleaned_stories)
 
-
-def generate_story(markov_model, limit=100, start='my dear'):
+random_key = random.choice(list(markov_model.keys()))
+def generate_story(markov_model, limit=100, start=random_key):
     n = 0
     curr_state = start
     next_state = None
@@ -82,6 +90,15 @@ def generate_story(markov_model, limit=100, start='my dear'):
         n+=1
     return story
 
-for i in range(5):
-    print(str(i)+". ", generate_story(markov_model, start="my dear", limit=20))
+output_filename="generated.txt"
+num_stories_to_generate = 15
+
+
+with open(output_filename, 'w', encoding='utf-8') as f:
+    for i in range(num_stories_to_generate):
+            new_story = generate_story(markov_model, limit=4)
+            f.write(f"{new_story}\n")
+
+
+
 
